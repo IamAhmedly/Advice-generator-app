@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Advice generator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Manrope;
+    }
+
+    .hov:hover{
+      box-shadow:0 0 40px hsl(150,100%,66%)
+    }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body class="flex flex-col justify-center items-center h-[100vh]   bg-[color:hsl(218,23%,16%)]">
+  <script>
+    // change this value to set intial state of Design images display
+    var priz = 1;
+  </script>
+
+
+  <div id="card" class=" relative flex flex-col justify-center items-center rounded-xl w-[91%] border border-black h-[310px] mb-28 bg-[color:hsl(217,19%,24%)] md:w-[550px] md:mt-10">
+
+    <h6 class="text-[color:hsl(150,100%,66%)] font-bold   tracking-[5px] text-xs py-4"></h6>
+    <p class="text-[color:hsl(193,38%,86%)] h-40 flex flex-col px-2 justify-center text-center text-2xl font-bold"></p>
+    <!-- <hr class="w-[90%]"> -->
+    <img src="./images/pattern-divider-desktop.svg" alt="" class="p-6 mb-8">
+    <div  class="absolute -bottom-8 hov  rounded-full   p-5 bg-[color:hsl(150,100%,66%)] shadow-whitehover:shadow-2xl" onclick="getAdvice()">
+      <img src="./images/icon-dice.svg" alt="" class="w-6" >
+    </div>
+    
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <img src="./design/mobile-design.jpg" alt="design" id="small" style="position: absolute;"
+    class="opacity-65 md:opacity-0">
+  <img src="./design/desktop-design.jpg" alt="design" id="larg" style="position: absolute;"
+    class="opacity-0 md:opacity-65">
+  <button id="btn" onclick="togg()"
+    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded fixed top-3 right-3 opacity-0 hover:opacity-65">Show
+    Design</button>
+  <!-- <div class="attribution ">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script type="text/javascript" src="index.js"></script>
+  <script>
+    var show = 1;
+    function togg() {
+      if (show) {
+        small.classList.add("hidden");
+        larg.classList.add("hidden");
+        show = 0;
+        btn.textContent = "Show Design";
+        btn.classList.add("bg-green-500", "hover:bg-green-700");
+        btn.classList.remove("bg-red-500", "hover:bg-red-700");
+      } else {
+        show = 1;
+        small.classList.remove("hidden");
+        larg.classList.remove("hidden");
+        btn.textContent = "Hide Design";
+        btn.classList.add("bg-red-500", "hover:bg-red-700");
+        btn.classList.remove("bg-green-500", "hover:bg-green-700");
+      }
+    }
+    if (!priz)
+      togg();
+  </script>
+</body>
+
+</html>
